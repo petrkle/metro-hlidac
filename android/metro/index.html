@@ -1,0 +1,43 @@
+[% INCLUDE header.html %]
+[% INCLUDE title.html %]
+[% INCLUDE loading.html %]
+
+<ul id="obrazky">
+</ul>
+
+<script>
+[% INCLUDE reload.js %]
+[% INCLUDE timeout.js %]
+
+$(document).ready(function () {
+
+var containerID="obrazky";
+
+var id = parseInt(window.location.hash.split('#')[1]) || 1;
+
+	$.getJSON("[% APP.api %]/p/"+id,
+  function(data) {
+		if(data.images.length>0){
+  for (var i=0; i < data.images.length; i++){
+		$('#'+containerID).append('<li><a href="img.html#'+data.images[i].link+'"><img src="'+data.images[i].image+'" /><span>'+data.images[i].date+'</span></a></li>');
+  }
+
+	if(data.next.length>0){
+		[% INCLUDE next.js %]
+	}
+		if(id > 1){
+			$('#header').html('<a href="index.html"><h1>[% APP.name %]</h1></a>');
+		}
+	}else{
+		[% INCLUDE retry.js %]
+	}
+	$('#loading').hide();
+})
+.fail(function( jqxhr, textStatus, error ) {
+		[% INCLUDE retry.js %]
+});
+
+});
+</script>
+
+[% INCLUDE footer.html -%]

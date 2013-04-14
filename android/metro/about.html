@@ -1,0 +1,15 @@
+[% INCLUDE header.html %]
+[% USE date %]
+[% INCLUDE title.html %]
+
+<div class="about">Neoficiální prohlížeč obrázků ze stránek <a href="[% APP.hlidacURL %]">metro.cz</a>.</div>
+
+<div class="about">Verze [% APP.version %]</div>
+
+<div class="about">Sestaveno: [% date.format(mytime, ' %d. %m. %Y').replace(' 0', ' ') %]</div>
+
+<div class="about">Zdrojový kód: <a href="https://github.com/petrkle/metro-hlidac" target="_blank">github.com/petrkle/metro-hlidac</a></div>
+
+<div class="about"><a href="index.html" class="button-link">OK</a></div>
+
+[% INCLUDE footer.html -%]

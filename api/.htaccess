@@ -1,0 +1,10 @@
+RewriteEngine	on
+
+# gallery pages
+RewriteRule ^p/([0-9]+)$ p.php?page=$1 [L,QSA]
+
+# img details
+RewriteRule ^i/([0-9]+)$ i.php?id=$1 [L,QSA]
+
+# rss
+RewriteRule ^metro.rss$ rss.php [L]

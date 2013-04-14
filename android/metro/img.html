@@ -1,0 +1,50 @@
+[% INCLUDE header.html %]
+[% INCLUDE title.html %]
+[% INCLUDE loading.html %]
+
+<div id="obrazek">
+</div>
+
+<script>
+[% INCLUDE reload.js %]
+[% INCLUDE timeout.js %]
+
+$(document).ready(function () {
+var containerID="obrazek";
+
+var id = parseInt(window.location.hash.split('#')[1]);
+
+	$.getJSON("[% APP.api %]/i/"+id,
+  function(data) {
+		if(data.img.length>0){
+
+		$('#'+containerID).append('<img id="obr" src="'+data.img+'" />');
+
+		if(data.text.length>0){
+			$('#'+containerID).append('<p>'+data.text+'</p>');
+		}
+			$('#'+containerID).append('<p>'+data.time+' '+data.authors+' pro <a href="[% APP.hlidacURL %]?idc='+id+'">metro.cz</a></p>');
+
+			$('#'+containerID).append('<div id="share"><span>Poslat na:</span><a href="https://www.facebook.com/sharer.php?u=[% APP.hlidacURL %]?idc='+id+'&t='+data.title+'">facebook</a><a href="https://plus.google.com/share?url=[% APP.hlidacURL %]?idc='+id+'">google+</a><a href="http://twitter.com/intent/tweet?source=metro.cz&text='+data.title+'&url=[% APP.hlidacURL %]?idc='+id+'">twitter</a></div>');
+
+	if(data.next.length>0){
+			[% INCLUDE next.js %]
+			$('#obr').attr('onclick',"reload("+data.next+");");
+	}
+
+		$('#header').html('<a href="index.html"><h1>'+data.title+'</h1></a>');
+	}else{
+		[% INCLUDE retry.js %]
+	}
+
+	$('#obr').show();
+
+	$('#loading').hide();
+})
+.fail(function( jqxhr, textStatus, error ) {
+		[% INCLUDE retry.js %]
+});
+});
+</script>
+
+[% INCLUDE footer.html -%]
