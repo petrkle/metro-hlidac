@@ -59,10 +59,6 @@ function load_from_cache($url){
 	return file_get_contents(CACHEDIR.'/'.url2fn($url));
 }
 
-function extract_userid($link){
-	return preg_replace('/.*users\/([0-9]+)\/.*/','\1',$link);
-}
-
 function get_images($url){
 	$images = array();
 	$images['images'] = array();
@@ -82,4 +78,3 @@ function get_images($url){
 	}
 	return $images;
 }
-
