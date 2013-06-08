@@ -59,6 +59,10 @@ function load_from_cache($url){
 	return file_get_contents(CACHEDIR.'/'.url2fn($url));
 }
 
+function extract_userid($link){
+	return preg_replace('/.*users\/([0-9]+)\/.*/','\1',$link);
+}
+
 function get_images($url){
 	$images = array();
 	$images['images'] = array();
@@ -67,8 +71,8 @@ function get_images($url){
 	$xpath = new DOMXPath($dom);
 	$nodes = $xpath->query("//a[@class='foto']");
 
-	$images['next']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-right']","href"));
-	$images['prev']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-left']","href"));
+	$images['next']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-right' and contains(@href,'page=')]","href"));
+	$images['prev']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-left' and contains(@href,'page=')]","href"));
 
 	foreach ($nodes as $node) {
 		$img['link']=preg_replace('/.*=/','',extract_attr_fn(".","href",$node,$xpath));
@@ -78,3 +82,4 @@ function get_images($url){
 	}
 	return $images;
 }
+
