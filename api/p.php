@@ -9,7 +9,7 @@ if(isset($_GET['page'])){
 	$page = 1;
 }
 
-$url = METRO."/me-hlidac.aspx?strana=$page";
+$url = METRO."/?strana=$page";
 
 if(is_cached($url)){
 	$images=load_from_cache($url);

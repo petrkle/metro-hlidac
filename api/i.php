@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 	exit();
 }
 
-$url = METRO."/me-hlidac.aspx?idc=$id";
+$url = METRO."/?idc=$id";
 
 if(is_cached($url)){
 	$image=load_from_cache($url);

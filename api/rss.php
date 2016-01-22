@@ -3,7 +3,7 @@
 require('config.php');
 require('func.php');
 
-$url = METRO."/me-hlidac.aspx?page=1";
+$url = METRO."?strana=1";
 
 if(is_cached($url)){
 	$images=load_from_cache($url);
@@ -23,7 +23,7 @@ print '<?xml version="1.0" encoding="utf-8"?>
 <link>http://'.$_SERVER['SERVER_NAME'].'/</link> 
 <description>Metro hlídač</description> 
 <image> 
-<url>http://gidnes.cz/o/metro/logo.png</url> 
+<url>http://gidnes.cz/u/loga-n4/metro-cz.png</url> 
 <title>Metro hlídač</title> 
 <link>http://'.$_SERVER['SERVER_NAME'].'/</link> 
 </image>
@@ -36,7 +36,7 @@ foreach($images['images'] as $img){
 print '
 <item> 
 <title>'.$img['date'].'</title> 
-<link>http://www.metro.cz/me-hlidac.aspx?idc='.$img['link'].'</link> 
+<link>'.METRO.'?idc='.$img['link'].'</link> 
 <dc:creator>metro.cz</dc:creator> 
 <description> 
 <![CDATA[
@@ -46,7 +46,7 @@ print '
 ]]>
 </description> 
 <pubDate>'.$datum.'</pubDate> 
-<guid>http://www.metro.cz/me-hlidac.aspx?idc='.$img['link'].'</guid> 
+<guid>'.METRO.'?idc='.$img['link'].'</guid> 
 </item>
 ';
 }
