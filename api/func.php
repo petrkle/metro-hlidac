@@ -67,17 +67,21 @@ function get_images($url){
 	$images = array();
 	$images['images'] = array();
 	$dom = new DOMDocument();
-	@$dom->loadHTML(file_get_contents($url));
+	$html = file_get_contents($url);
+	$html = iconv('windows-1250', 'UTF-8', html_entity_decode(file_get_contents($url), ENT_COMPAT, 'iso-8859-1'));
+	$html = preg_replace('/meta charset="windows-1250"/', 'meta http-equiv="Content-Type" content="text/html; charset=utf-8"', $html);
+	@$dom->loadHTML($html);
 	$xpath = new DOMXPath($dom);
-	$nodes = $xpath->query("//a[@class='foto']");
+	$nodes = $xpath->query('//div[@class="hp-list"]/div[@class="box-in"]/a');
 
-	$images['next']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-right' and contains(@href,'page=')]","href"));
-	$images['prev']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-left' and contains(@href,'page=')]","href"));
+	$images['next']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-right' and contains(@href,'strana=')]","href"));
+	$images['prev']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='ico-left' and contains(@href,'strana=')]","href"));
 
 	foreach ($nodes as $node) {
 		$img['link']=preg_replace('/.*=/','',extract_attr_fn(".","href",$node,$xpath));
 		$img['date']=extract_text_fn(".//span",$node,$xpath);
-		$img['image']=preg_replace('/background-image:url\(\'(.*)\'\)/','\1',extract_attr_fn(".//img","style",$node,$xpath));
+		$img['image']=extract_attr_fn(".//img","src",$node,$xpath);
+		$img['alt']=extract_attr_fn(".//img","alt",$node,$xpath);
 		array_push($images['images'],$img);
 	}
 	return $images;

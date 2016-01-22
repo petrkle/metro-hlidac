@@ -9,7 +9,7 @@ if(isset($_GET['page'])){
 	$page = 1;
 }
 
-$url = METRO."/me-hlidac.aspx?page=$page";
+$url = METRO."/me-hlidac.aspx?strana=$page";
 
 if(is_cached($url)){
 	$images=load_from_cache($url);
@@ -19,5 +19,5 @@ if(is_cached($url)){
 }
 
 header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 print $images;
