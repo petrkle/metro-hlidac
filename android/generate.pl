@@ -14,7 +14,7 @@ my $OUT = "assets/www";
 my $APP = {
 	'api' => "http://metro-pek.rhcloud.com",
 	'name' => "Metro hlídač",
-	'hlidacURL' => "http://www.metro.cz/me-hlidac.aspx",
+	'hlidacURL' => "http://praha.idnes.cz/me-hlidac.aspx",
 	'version' => $manifest->{'android:versionName'}
 };
 
