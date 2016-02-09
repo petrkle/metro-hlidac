@@ -5,20 +5,16 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <allow-intent href="market:*" />
     <name>Metro hlídač</name>
     <description>
 			Obrázky od čtenářů deníku metro.
     </description>
-		<author email="petr@kle.cz" href="http://petr.kle.cz">
+		<author email="petr@kle.cz" href="https://petr.kle.cz">
 				Petr Kletečka
     </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
 </widget>
