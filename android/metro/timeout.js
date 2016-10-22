@@ -1,3 +1,3 @@
 $.ajaxSetup({
-  timeout: 7000
+  timeout: 15000
 });

@@ -12,7 +12,7 @@ my $manifest = $xml->XMLin("AndroidManifest.xml");
 my $OUT = "assets/www";
 
 my $APP = {
-	'api' => "http://metro-pek.rhcloud.com",
+	'api' => "https://kle.cz/metro-hlidac/api",
 	'name' => "Metro hlídač",
 	'hlidacURL' => "http://praha.idnes.cz/me-hlidac.aspx",
 	'version' => $manifest->{'android:versionName'}
@@ -35,4 +35,4 @@ foreach my $page (@PAGES){
 copy("metro/m.css","$OUT/m.css");
 copy("metro/img/loading.gif","$OUT/loading.gif");
 copy("metro/img/home.png","$OUT/home.png");
-copy("metro/jquery-1.8.3.min.js","$OUT/jquery.js");
+copy("metro/jquery-1.12.4.min.js","$OUT/jquery.js");
