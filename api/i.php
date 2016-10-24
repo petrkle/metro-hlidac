@@ -25,7 +25,7 @@ if(is_cached($url)){
 	$image['text']=extract_text($dom,"//div[@class='text']");
 	$image['authors']=extract_text($dom,"//div[@class='authors']");
 	$image['time']=extract_text($dom,"//span[@class='time']");
-	$image['img']='https:'.extract_atr($dom,"//td[@class='equ-img']/a/img","src");
+	$image['img']='http:'.extract_atr($dom,"//td[@class='equ-img']/a/img","src");
 	$image['prev']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='img-prev ']","href"));
 	$image['next']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='img-next ']","href"));
 	$image=json_encode($image);
