@@ -26,8 +26,10 @@ var id = parseInt(window.location.hash.split('#')[1]) || 1;
 		[% INCLUDE next.js %]
 	}
 		if(id > 1){
-			$('#header').html('<a href="index.html"><h1>[% APP.name %]</h1></a>');
-		}
+				$('#header').html('<a href="index.html" class="home"><h1>[% APP.name %]</h1></a>');
+			}else{
+				$('#header').html('<a href="index.html" class="reload"><h1>[% APP.name %]</h1></a>');
+			}
 	}else{
 		[% INCLUDE retry.js %]
 	}

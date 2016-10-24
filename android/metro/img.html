@@ -28,9 +28,27 @@ var id = parseInt(window.location.hash.split('#')[1]);
 	if(data.next.length>0){
 			[% INCLUDE next.js %]
 			$('#obr').attr('onclick',"reload("+data.next+");");
+			
+			$("#obr").swipe( {
+        swipeLeft:function(event, direction, distance, duration, fingerCount) {
+					reload(data.next);
+        },
+        threshold: 50
+      });
+
 	}
 
-		$('#header').html('<a href="index.html"><h1>'+data.title+'</h1></a>');
+	if(data.prev.length>0){
+			$("#obr").swipe( {
+        swipeRight:function(event, direction, distance, duration, fingerCount) {
+					reload(data.prev);
+        },
+        threshold: 50
+      });
+
+	}
+
+		$('#header').html('<a href="index.html" class="home"><h1>'+data.title+'</h1></a>');
 	}else{
 		[% INCLUDE retry.js %]
 	}
@@ -38,6 +56,8 @@ var id = parseInt(window.location.hash.split('#')[1]);
 	$('#obr').show();
 
 	$('#loading').hide();
+
+
 })
 .fail(function( jqxhr, textStatus, error ) {
 		[% INCLUDE retry.js %]
