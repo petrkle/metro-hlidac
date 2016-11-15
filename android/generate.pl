@@ -12,7 +12,7 @@ my $manifest = $xml->XMLin("AndroidManifest.xml");
 my $OUT = "assets/www";
 
 my $APP = {
-	'api' => "https://kle.cz/metro-hlidac/api",
+	'api' => "https://mh.kle.cz",
 	'name' => "Metro hlídač",
 	'hlidacURL' => "http://praha.idnes.cz/me-hlidac.aspx",
 	'version' => $manifest->{'android:versionName'}
