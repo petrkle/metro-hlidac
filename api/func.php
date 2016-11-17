@@ -38,18 +38,9 @@ function extract_attr_fn($query,$attr,$node,$xpath){
 	}
 }
 
-function is_cached($url){
-	$fn=CACHEDIR.'/'.url2fn($url);
-	if(is_readable($fn) and (time()-filemtime($fn) <= CACHETIME)){
-		return true;
-	}else{
-		return false;
-	}
-}
-
 function url2fn($url){
 	$url = str_replace(METRO,'',$url);
-	return preg_replace('/[^a-z0-9]*/','',$url);
+	return preg_replace('/[^a-z0-9]*/','',$url).'.json';
 }
 
 function save_to_cache($url,$content){
@@ -57,10 +48,6 @@ function save_to_cache($url,$content){
 	$fp = fopen(CACHEDIR.'/'.url2fn($url), 'w');
 	fwrite($fp, $content);
 	fclose($fp);
-}
-
-function load_from_cache($url){
-	return file_get_contents(CACHEDIR.'/'.url2fn($url));
 }
 
 function extract_userid($link){
@@ -90,4 +77,3 @@ function get_images($url){
 	}
 	return $images;
 }
-
