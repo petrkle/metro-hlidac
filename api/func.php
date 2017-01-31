@@ -59,8 +59,6 @@ function get_images($url){
 	$images['images'] = array();
 	$dom = new DOMDocument();
 	$html = file_get_contents($url);
-	$html = iconv('windows-1250', 'UTF-8', html_entity_decode(file_get_contents($url), ENT_COMPAT, 'iso-8859-1'));
-	$html = preg_replace('/meta charset="windows-1250"/', 'meta http-equiv="Content-Type" content="text/html; charset=utf-8"', $html);
 	@$dom->loadHTML($html);
 	$xpath = new DOMXPath($dom);
 	$nodes = $xpath->query('//div[@class="hp-list"]/div[@class="box-in"]/a');
@@ -76,4 +74,9 @@ function get_images($url){
 		array_push($images['images'],$img);
 	}
 	return $images;
+}
+
+function win2utf($html){
+	$html = iconv('windows-1250', 'UTF-8', html_entity_decode($html, ENT_COMPAT, 'iso-8859-1'));
+	return preg_replace('/meta.*windows-1250"/', 'meta http-equiv="Content-Type" content="text/html; charset=utf-8"', $html);
 }
