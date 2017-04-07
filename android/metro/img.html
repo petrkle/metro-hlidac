@@ -23,7 +23,7 @@ var id = parseInt(window.location.hash.split('#')[1]);
 		if(data.text.length>0){
 			$('#'+containerID).append('<p>'+data.text+'</p>');
 		}
-			$('#'+containerID).append('<p>'+data.time+' '+data.authors+' pro <a href="[% APP.hlidacURL %]?idc='+id+'">metro.cz</a></p>');
+			$('#'+containerID).append('<p>'+data.time+' '+data.authors+' pro <a href="'+data.img+'">metro.cz</a></p>');
 
 	if(data.next.length>0){
 			[% INCLUDE next.js %]
