@@ -33,7 +33,7 @@ var id = parseInt(window.location.hash.split('#')[1]);
         swipeLeft:function(event, direction, distance, duration, fingerCount) {
 					reload(data.next);
         },
-        threshold: 50
+        threshold: 100
       });
 
 	}
@@ -43,7 +43,7 @@ var id = parseInt(window.location.hash.split('#')[1]);
         swipeRight:function(event, direction, distance, duration, fingerCount) {
 					reload(data.prev);
         },
-        threshold: 50
+        threshold: 100
       });
 
 	}
