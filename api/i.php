@@ -26,6 +26,5 @@ $image['next']=preg_replace('/.*=/','',extract_atr($dom,"//a[@class='img-next ']
 $image=json_encode($image);
 save_to_cache($url,$image);
 
-header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=utf-8');
 print $image;
