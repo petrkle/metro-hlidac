@@ -3,19 +3,16 @@ use strict;
 use warnings;
 use utf8;
 use Template;
-use XML::Simple;
 use File::Copy;
 
-my $xml = new XML::Simple;
-my $manifest = $xml->XMLin("AndroidManifest.xml");
-
-my $OUT = "assets/www";
+my $OUT = "app/src/main/assets/www";
+my $appversion = `grep versionCode app/build.gradle | sed "s/[^0-9]*//"`;
 
 my $APP = {
 	'api' => "https://mh.kle.cz",
 	'name' => "Metro hlídač",
 	'hlidacURL' => "http://praha.idnes.cz/me-hlidac.aspx",
-	'version' => $manifest->{'android:versionName'}
+	'version' => $appversion
 };
 
 my @PAGES = ( "index", "img");

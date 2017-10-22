@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="Metro" parent="android:Theme.Light">
+    <item name="android:windowBackground">@color/mh_bg</item>
+    <item name="android:colorBackground">@color/mh_header</item>
+</style>
+</resources>
