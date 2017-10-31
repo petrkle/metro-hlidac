@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5e -->
+<!-- CreationDate: Tue Oct 31 10:53:42 2017 -->
+<!-- Magnification: 1.000 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="3.5in" height="3.3in"
+	viewBox="-87 -12 4224 3924">
+<g style="stroke-width:.025in; fill:none">
+<!-- Line -->
+<polyline points="-75,2100
+2025,0
+4125,2100
+-75,2100
+" style="stroke:#ffffff;stroke-width:7;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Line: box -->
+<rect x="2550" y="150" width="600" height="1125" rx="0" 
+style="stroke:#ffffff;stroke-width:7;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Line: box -->
+<rect x="600" y="2025" width="1050" height="1875" rx="0" 
+style="stroke:#ffffff;stroke-width:7;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Line: box -->
+<rect x="2400" y="2025" width="1050" height="1875" rx="0" 
+style="stroke:#ffffff;stroke-width:7;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Line: box -->
+<rect x="600" y="2025" width="2850" height="675" rx="0" 
+style="stroke:#ffffff;stroke-width:7;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+</g>
+</svg>

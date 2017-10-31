@@ -30,8 +30,8 @@ foreach my $page (@PAGES){
 }
 
 copy("metro/m.css","$OUT/m.css");
-copy("metro/img/loading.gif","$OUT/loading.gif");
-copy("metro/img/home.png","$OUT/home.png");
-copy("metro/img/reload.png","$OUT/reload.png");
+copy("metro/img/loading.svg","$OUT/loading.svg");
+copy("metro/img/home.svg","$OUT/home.svg");
+copy("metro/img/reload.svg","$OUT/reload.svg");
 copy("metro/jquery-1.12.4.min.js","$OUT/jquery.js");
 copy("metro/jquery.touchSwipe-1.6.18.min.js","$OUT/ts.js");
