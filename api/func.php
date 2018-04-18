@@ -69,7 +69,7 @@ function get_images($url){
 	foreach ($nodes as $node) {
 		$img['link']=preg_replace('/.*=/','',extract_attr_fn(".","href",$node,$xpath));
 		$img['date']=extract_text_fn(".//span",$node,$xpath);
-		$img['image']='http:'.extract_attr_fn(".//img","src",$node,$xpath);
+		$img['image']='https:'.extract_attr_fn(".//img","src",$node,$xpath);
 		$img['alt']=extract_attr_fn(".//img","alt",$node,$xpath);
 		array_push($images['images'],$img);
 	}
