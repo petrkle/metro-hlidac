@@ -6,7 +6,7 @@ use Template;
 use File::Copy;
 
 my $OUT = "app/src/main/assets/www";
-my $appversion = `grep versionCode app/build.gradle | sed "s/[^0-9]*//"`;
+my $appversion = `TERM=xterm-color gradle -q printVersionName 2>/dev/null`;
 
 my $APP = {
 	'api' => "https://mh.kle.cz",
